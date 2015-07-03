@@ -368,7 +368,10 @@ method configure {
     $self->add_plugins('AutoPrereqs') if $self->auto_prereqs;
 }
 
-with 'Dist::Zilla::Role::PluginBundle::Easy';
+with
+    'Dist::Zilla::Role::PluginBundle::Easy',
+    'Dist::Zilla::Role::PluginBundle::PluginRemover' => { -version => '0.103' },
+    'Dist::Zilla::Role::PluginBundle::Config::Slicer';
 
 __PACKAGE__->meta->make_immutable;
 
