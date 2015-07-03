@@ -1,4 +1,6 @@
+Revision history for Dist-Zilla-PluginBundle-FLORA
 
+{{$NEXT}}
   * resolve deprecation warnings from old plugins
   * add ConfigSlicer, PluginRemover roles
 
