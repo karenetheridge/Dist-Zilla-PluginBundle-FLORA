@@ -36,6 +36,10 @@ It is roughly equivalent to:
   [Test::EOL]
   [Test::NewVersion]
 
+  [Test::ReportPrereqs]
+  :version = 0.019
+  verify_prereqs = 1
+
   [MetaResources]
   repository.type   = git
   repository.url    = git://github.com/rafl/${lowercase_dist}
@@ -47,6 +51,10 @@ It is roughly equivalent to:
   [Authority]
   authority   = cpan:FLORA
   do_metadata = 1
+
+  [MinimumPerl]
+  :version = 1.006
+  configure_finder = :NoFiles
 
   [PodWeaver]
   config_plugin = @FLORA
@@ -348,6 +356,8 @@ method configure {
             authority   => $self->authority,
             do_metadata => 1,
         }],
+        [ 'MinimumPerl'         => { ':version' => '1.006', configure_finder => ':NoFiles' } ],
+
         ['Test::EOL' => {
             ':version' => '0.14',
             trailing_whitespace => !$self->disable_trailing_whitespace_tests,
@@ -356,6 +366,7 @@ method configure {
             ':version' => '0.09',
         }],
         ['Test::NewVersion'],
+        [ 'Test::ReportPrereqs' => { ':version' => '0.019', verify_prereqs => 1 } ],
     );
 
 

@@ -2,6 +2,8 @@ Revision history for Dist-Zilla-PluginBundle-FLORA
 
   * added [Test::NewVersion], to guard against not bumping the distribution
     version
+  * added [MinimumPerl], for metadata, and [Test::ReportPrereqs], to ensure
+    there will always be a runnable test for every distribution
 
 0.15  Fri  3 Jul 2015 13:10:37 PDT
   * resolve deprecation warnings from old plugins
