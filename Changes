@@ -4,6 +4,7 @@ Revision history for Dist-Zilla-PluginBundle-FLORA
     version
   * added [MinimumPerl], for metadata, and [Test::ReportPrereqs], to ensure
     there will always be a runnable test for every distribution
+  * added missing prereqs (RT#106167)
 
 0.15  Fri  3 Jul 2015 13:10:37 PDT
   * resolve deprecation warnings from old plugins

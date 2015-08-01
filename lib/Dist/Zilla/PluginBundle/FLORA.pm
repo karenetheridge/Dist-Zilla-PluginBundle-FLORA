@@ -10,6 +10,11 @@ use MooseX::Types::Moose qw(Bool Str CodeRef);
 use MooseX::Types::Structured 0.20 qw(Map Dict Optional);
 use namespace::autoclean -also => 'lower';
 
+with
+    'Dist::Zilla::Role::PluginBundle::Easy',
+    'Dist::Zilla::Role::PluginBundle::PluginRemover' => { -version => '0.103' },
+    'Dist::Zilla::Role::PluginBundle::Config::Slicer';
+
 =head1 SYNOPSIS
 
 In dist.ini:
@@ -330,6 +335,7 @@ override BUILDARGS => method ($class:) {
     return { %{ $args->{payload} }, %{ $args } };
 };
 
+sub configure;  # forward declaration for role application
 method configure {
     $self->add_bundle('@Basic');
 
@@ -380,11 +386,6 @@ method configure {
 
     $self->add_plugins('AutoPrereqs') if $self->auto_prereqs;
 }
-
-with
-    'Dist::Zilla::Role::PluginBundle::Easy',
-    'Dist::Zilla::Role::PluginBundle::PluginRemover' => { -version => '0.103' },
-    'Dist::Zilla::Role::PluginBundle::Config::Slicer';
 
 __PACKAGE__->meta->make_immutable;
 
