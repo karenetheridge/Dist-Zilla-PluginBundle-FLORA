@@ -34,6 +34,7 @@ It is roughly equivalent to:
   [PodCoverageTests]
   [Test::NoTabs]
   [Test::EOL]
+  [Test::NewVersion]
 
   [MetaResources]
   repository.type   = git
@@ -354,6 +355,7 @@ method configure {
         ['Test::NoTabs' => {
             ':version' => '0.09',
         }],
+        ['Test::NewVersion'],
     );
 
 
