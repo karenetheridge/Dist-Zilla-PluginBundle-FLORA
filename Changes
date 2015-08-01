@@ -1,5 +1,6 @@
 Revision history for Dist-Zilla-PluginBundle-FLORA
 
+0.16  Sat  1 Aug 2015 13:30:13 PDT
   * added [Test::NewVersion], to guard against not bumping the distribution
     version
   * added [MinimumPerl], for metadata, and [Test::ReportPrereqs], to ensure
